@@ -42,10 +42,12 @@ function writeMonth(month){
             dates.innerHTML+= ` <div class="weekday">${i}</div> `;
     }
 
-    /*for(let i=getTotalDays(mesActual); i<=getTotalDays(mesActual+1) ; i++){ //Va hacia atrás (del 1 al 31 etc)
-        dates.innerHTML+= `<div class="weekday opaco">${getTotalDays(mesActual+1)+1}</div>`
+    for(let i=lastDay(), j=1; i<6 ; i++, j++){ 
+        
+        dates.innerHTML+= `<div class="weekday opaco">${j}</div>`
+
     }
-    */
+    
 
 }
 
@@ -69,9 +71,14 @@ function esBisiesto(){
 function startDay(){ //Dónde empieza la semana
     let start = new Date(añoActual, mesActual, 1) //Crea una nueva fecha (ese año, ese mes, el día 1)
     //Para que empiece en domingo: 
-    return ((start.getDay()-1) === -1) ? 6 : start.getDay()-1;
-    //del 1er día toma el día de la semana (0-6); si es 0 (lunes) le resta 1 para que sea domingo 
+    return start.getDay(); //devuelve el día de la semana del día 1
 }
+
+function lastDay(){
+    let last = new Date(añoActual, mesActual, getTotalDays(mesActual));
+    return last.getDay();
+}
+// alert(lastDay());
 
 //flechas
 function goPrevMonth(){
