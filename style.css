@@ -27,7 +27,7 @@ h1{
 .i-next{
     margin-left: auto;
 }
-.calendar-week{
+.calendar-week, .dates{
     display: grid;
     grid-template-columns: repeat(7,1fr);
     grid-gap: 10px;
@@ -38,4 +38,14 @@ h1{
 }
 #year, #month{
     padding: .5em 1em ;
+}
+
+.hoy{
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+
+}
+.opaco{
+    opacity:.3;
 }
